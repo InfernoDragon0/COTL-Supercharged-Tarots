@@ -1,32 +1,27 @@
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
-using COTL_API.CustomInventory;
-using CotLTemplateMod.Items;
 using System.IO;
-using static InventoryItem;
-using COTL_API.CustomFollowerCommand;
-using CotLTemplateMod.CustomFollowerCommands;
+using COTL_API.CustomTarotCard;
+using SuperchargedTarots.Tarots;
 
-namespace CotLTemplateMod
+namespace SuperchargedTarots
 {
     [BepInPlugin(PluginGuid, PluginName, PluginVer)]
     [BepInDependency("io.github.xhayper.COTL_API")]
     [HarmonyPatch]
     public class Plugin : BaseUnityPlugin
     {
-        public const string PluginGuid = "IngoH.cotl.CotLTemplateMod";
-        public const string PluginName = "CotLTemplateMod";
+        public const string PluginGuid = "InfernoDragon0.cotl.SuperchargedTarots";
+        public const string PluginName = "SuperchargedTarots";
         public const string PluginVer = "1.0.0";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
 
         internal static string PluginPath;
+        public static TarotCards.Card perfectCurseX;
 
-        internal static ITEM_TYPE ExampleItem;
-
-        internal static FollowerCommands FollowerCommand;
 
         private void Awake()
         {
@@ -34,8 +29,15 @@ namespace CotLTemplateMod
 
             PluginPath = Path.GetDirectoryName(Info.Location);
 
-            ExampleItem = CustomItemManager.Add(new ExampleItem());
-            FollowerCommand = CustomFollowerCommandManager.Add(new ExampleFollowerCommand());
+            CustomTarotCardManager.Add(new Tarot_AmmoX());
+            CustomTarotCardManager.Add(new Tarot_CritX());
+            CustomTarotCardManager.Add(new Tarot_CurseDamageX());
+            CustomTarotCardManager.Add(new Tarot_DamageX());
+            CustomTarotCardManager.Add(new Tarot_HeartsX());
+            CustomTarotCardManager.Add(new Tarot_SpeedX());
+            CustomTarotCardManager.Add(new Tarot_SunX());
+            perfectCurseX = CustomTarotCardManager.Add(new Tarot_PerfectCurseX());
+
         }
 
         private void OnEnable()

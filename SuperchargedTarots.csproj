@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>CotLTemplateMod</AssemblyName>
+        <AssemblyName>SuperchargedTarots</AssemblyName>
         <AssemblyVersion>1.0.0</AssemblyVersion>
         <ReleaseVersion>1.0.0</ReleaseVersion>
         <TargetFramework>netstandard2.0</TargetFramework>
@@ -25,7 +25,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CultOfTheLamb.GameLibs" Version="1.0.12-*" />
+        <PackageReference Include="CultOfTheLamb.GameLibs" Version="1.2.2.286-r.0" />
     </ItemGroup>
 
     <ItemGroup>

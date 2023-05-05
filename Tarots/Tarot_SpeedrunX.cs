@@ -5,15 +5,15 @@ using System.Text;
 
 namespace SuperchargedTarots.Tarots
 {
-    internal class Tarot_AmmoX : CustomTarotCard
+    internal class Tarot_SpeedRunX : CustomTarotCard
     {
-        public override string InternalName => "TAROT_AMMO_X";
+        public override string InternalName => "TAROT_SPEEDRUN_X";
 
-        public override string Skin => "Trinkets/AmmoEfficient";
+        public override string Skin => "Trinkets/MovementSpeed";
 
         public override string LocalisedName(int upgradeIndex)
         {
-            return "<color=\"red\">Shadow Quiver</color>";
+            return "<color=\"red\">Speedrunner</color>";
         }
 
         public override string LocalisedLore()
@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "Near Infinite Curse Casting.";
+            return "4x Movement Speed.";
         }
 
-        public override float GetAmmoEfficiency(TarotCards.TarotCard card)
+        public override float GetMovementSpeedMultiplier(TarotCards.TarotCard card)
         {
-            return 66f;
+            return 4f;
         }
 
     }

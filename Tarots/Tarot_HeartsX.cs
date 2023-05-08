@@ -9,7 +9,7 @@ namespace SuperchargedTarots.Tarots
     {
         public override string InternalName => "TAROT_HEARTS_X";
 
-        public override string Skin => "Trinkets/TheLovers2";
+        public override string Skin => "Trinkets/DiseasedHeart";
 
         public override string LocalisedName(int upgradeIndex)
         {
@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "Grants you 10 Black Hearts";
+            return "Grants you " + Plugin.heartsConfig.Value + " Black Hearts";
         }
 
         public override void ApplyInstantEffects(TarotCards.TarotCard card)
         {
-            PlayerFarming.Instance.GetComponent<HealthPlayer>().BlackHearts += 20f;
+            PlayerFarming.Instance.GetComponent<HealthPlayer>().BlackHearts += Plugin.heartsConfig.Value;
             var position2 = PlayerFarming.Instance.CameraBone.transform.position;
             BiomeConstants.Instance.EmitHeartPickUpVFX(position2, 0f, "red", "burst_big");
         }

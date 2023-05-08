@@ -28,7 +28,7 @@ namespace SuperchargedTarots.Tarots
 
         public override float GetAmmoEfficiency(TarotCards.TarotCard card)
         {
-            return 66f;
+            return Plugin.ammoConfig.Value;
         }
 
     }

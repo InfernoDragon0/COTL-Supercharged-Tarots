@@ -5,15 +5,15 @@ using System.Text;
 
 namespace SuperchargedTarots.Tarots
 {
-    internal class Tarot_CurseDamageX : CustomTarotCard
+    internal class Tarot_RelicChargeX : CustomTarotCard
     {
-        public override string InternalName => "TAROT_CURSEDAMAGE_X";
+        public override string InternalName => "TAROT_RELICCHARGE_X";
 
-        public override string Skin => "Trinkets/Potion";
+        public override string Skin => "Trinkets/DecreaseRelicCharge";
 
         public override string LocalisedName(int upgradeIndex)
         {
-            return "<color=\"red\">Supernova</color>";
+            return "<color=\"red\">Relic Overdrive</color>";
         }
 
         public override string LocalisedLore()
@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return Plugin.curseDamageConfig.Value + "x more Curse Damage.";
+            return Plugin.relicChargeConfig.Value + "x Relic Charge Speed.";
         }
 
-        public override float GetCurseDamageMultiplerIncrease(TarotCards.TarotCard card)
+        public override float GetRelicChargeMultiplier(TarotCards.TarotCard card)
         {
-            return Plugin.curseDamageConfig.Value;
+            return Plugin.relicChargeConfig.Value;
         }
 
     }

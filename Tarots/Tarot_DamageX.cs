@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "100% more Damage.";
+            return Plugin.damageConfig.Value + "x more Damage.";
         }
 
         public override float GetWeaponDamageMultiplerIncrease(TarotCards.TarotCard card)
         {
-            return 1f;
+            return Plugin.damageConfig.Value;
         }
 
     }

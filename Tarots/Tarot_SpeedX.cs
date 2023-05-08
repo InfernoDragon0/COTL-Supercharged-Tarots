@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "5x Attack Speed.";
+            return Plugin.speedConfig.Value + "x Attack Speed.";
         }
 
         public override float GetAttackRateMultiplier(TarotCards.TarotCard card)
         {
-            return 5f;
+            return Plugin.speedConfig.Value;
         }
 
     }

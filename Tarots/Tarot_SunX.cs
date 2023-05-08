@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "200% more Damage during the day, 300% more Damage during the night.";
+            return Plugin.sunConfig.Value + "x Damage during the day, " + Plugin.moonConfig.Value + "x Damage during the night.";
         }
         
         public override float GetWeaponDamageMultiplerIncrease(TarotCards.TarotCard card)
         {
-            return !TimeManager.IsDay ? 3f : 2f;
+            return !TimeManager.IsDay ? Plugin.moonConfig.Value : Plugin.sunConfig.Value;
         }
     }
 }

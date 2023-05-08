@@ -23,12 +23,12 @@ namespace SuperchargedTarots.Tarots
 
         public override string LocalisedDescription(int upgradeIndex)
         {
-            return "4x Movement Speed.";
+            return Plugin.speedRunConfig.Value + "x Movement Speed.";
         }
 
         public override float GetMovementSpeedMultiplier(TarotCards.TarotCard card)
         {
-            return 4f;
+            return Plugin.speedRunConfig.Value;
         }
 
     }

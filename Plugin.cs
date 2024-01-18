@@ -15,7 +15,7 @@ namespace SuperchargedTarots
     {
         public const string PluginGuid = "InfernoDragon0.cotl.SuperchargedTarots";
         public const string PluginName = "SuperchargedTarots";
-        public const string PluginVer = "1.0.1";
+        public const string PluginVer = "1.0.2";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
@@ -31,6 +31,10 @@ namespace SuperchargedTarots
         public static TarotCards.Card critX;
         public static TarotCards.Card ammoX;
         public static TarotCards.Card relicChargeX;
+        public static TarotCards.Card blunderBusterX;
+        public static TarotCards.Card gunslingerX;
+        public static TarotCards.Card resilientGunnerX;
+        public static TarotCards.Card multishotX;
 
         //Config for Tarots
         internal static ConfigEntry<float> ammoConfig;
@@ -42,6 +46,8 @@ namespace SuperchargedTarots
         internal static ConfigEntry<float> speedRunConfig;
         internal static ConfigEntry<float> sunConfig;
         internal static ConfigEntry<float> moonConfig;
+
+        internal static ConfigEntry<bool> shouldAddCardConfig;
         
 
         private void Awake()
@@ -60,6 +66,7 @@ namespace SuperchargedTarots
             speedRunConfig = Config.Bind("SuperchargedTarots", "SpeedRun", 3f, "Move Speed Multiplier (should not go over 10, or you will move too fast)");
             sunConfig = Config.Bind("SuperchargedTarots", "Sun", 2f, "Sun Damage Multiplier");
             moonConfig = Config.Bind("SuperchargedTarots", "Moon", 3f, "Moon Damage Multiplier");
+            shouldAddCardConfig = Config.Bind("SuperchargedTarots", "AddCards", false, "Set to true if tarots are not being added when collecting them. (Fix for double tarot bug)");
 
             //SETUP: Add Cards
             ammoX = CustomTarotCardManager.Add(new Tarot_AmmoX());
@@ -72,6 +79,12 @@ namespace SuperchargedTarots
             sunX = CustomTarotCardManager.Add(new Tarot_SunX());
             perfectCurseX = CustomTarotCardManager.Add(new Tarot_PerfectCurseX());
             relicChargeX = CustomTarotCardManager.Add(new Tarot_RelicChargeX());
+
+            //GUNS BLAZING Update
+            blunderBusterX = CustomTarotCardManager.Add(new Tarot_BlunderBusterX());
+            gunslingerX = CustomTarotCardManager.Add(new Tarot_GunslingerX());
+            resilientGunnerX = CustomTarotCardManager.Add(new Tarot_ResilientGunnerX());
+            multishotX = CustomTarotCardManager.Add(new Tarot_MultishotX());
         }
 
         private void OnEnable()

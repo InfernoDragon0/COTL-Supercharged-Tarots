@@ -19,11 +19,20 @@ namespace SuperchargedTarots.Patches
 
             DataManager.Instance.PlayerRunTrinkets.Remove(card1);
             DataManager.Instance.PlayerRunTrinkets.Remove(card2);
+            Plugin.Log.LogInfo("Removing " + card1.CardType.ToString() + " and " + card2.CardType.ToString());
+
             
             __instance._card1 = GetCard();
             __instance._card2 = GetCard(false);
             __instance._uiCard1.Play(__instance._card1);
             __instance._uiCard2.Play(__instance._card2);
+
+            __instance.OnTarotCardSelected += card =>
+            {
+                DataManager.Instance.PlayerRunTrinkets.Remove(card == __instance._card1 ? __instance._card2 : __instance._card1);
+                Plugin.Log.LogInfo("keeping " + card.CardType.ToString());
+            };
+
             __instance.Show(instant);
             return false;
         }
@@ -63,8 +72,10 @@ namespace SuperchargedTarots.Patches
                     card = TarotCards.DrawRandomCard();
             }
 
-            if (card != null)
+            if (card != null && Plugin.shouldAddCardConfig.Value) {
                 DataManager.Instance.PlayerRunTrinkets.Add(card);
+                Plugin.Log.LogInfo("Adding (another) " + card.CardType.ToString());
+            }
 
             return card;
         }

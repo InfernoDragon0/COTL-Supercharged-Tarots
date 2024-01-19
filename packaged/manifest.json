@@ -1,0 +1,9 @@
+{
+    "name": "Supercharged_Tarots",
+    "version_number": "1.0.2",
+    "website_url": "https://github.com/InfernoDragon0/COTL-Supercharged-Tarots",
+    "description": "Supercharged Series: Tarots for totally unbalanced and overpowered gameplay",
+    "dependencies": [
+        "xhayper-COTL_API-0.2.1"
+    ]
+}

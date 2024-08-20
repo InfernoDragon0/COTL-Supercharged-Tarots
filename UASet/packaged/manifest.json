@@ -1,0 +1,9 @@
+{
+    "name": "Supercharged_Tarots_UA",
+    "version_number": "1.0.0",
+    "website_url": "https://github.com/InfernoDragon0/COTL-Supercharged-Tarots",
+    "description": "Supercharged Tarots: Unholy Alliance expansion for totally unbalanced and overpowered gameplay",
+    "dependencies": [
+        "xhayper-COTL_API-0.2.3"
+    ]
+}

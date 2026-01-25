@@ -19,7 +19,7 @@ namespace SuperchargedTarotsUA
     {
         public const string PluginGuid = "InfernoDragon0.cotl.SuperchargedTarotsUA";
         public const string PluginName = "SuperchargedTarotsUA";
-        public const string PluginVer = "1.0.0";
+        public const string PluginVer = "1.0.1";
 
         internal static ManualLogSource Log;
         internal readonly static Harmony Harmony = new(PluginGuid);
